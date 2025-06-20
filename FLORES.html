@@ -308,5 +308,24 @@
       </div>
     </div>
     <script src="main.js"></script>
+    
+
+    <audio id="musicaFondo" autoplay loop>
+        <source src="Floricienta.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const musica = document.getElementById("musicaFondo");
+        const playMusica = () => {
+        musica.play().catch(() => {
+            console.warn("El navegador bloqueó el autoplay. Esperando interacción.");
+          });
+        };
+
+        // Toca la música al hacer cualquier interacción si fue bloqueada
+        document.body.addEventListener("click", playMusica, { once: true });
+    });
+    </script>
   </body>
 </html>
